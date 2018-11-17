@@ -6,5 +6,16 @@ import { Component } from '@angular/core';
   styleUrls: ['./app.component.css']
 })
 export class AppComponent {
-  title = 'fed-tetris';
+  gameTitle = 'FED Tetris';
+  playerName = 'Paweł';
+  gameStarted = false;
+
+  start(name) {
+    this.playerName = name;
+    this.gameStarted = true;
+  }
+
+  end() {
+    this.gameStarted = false;
+  }
 }

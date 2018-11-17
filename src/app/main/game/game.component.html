@@ -1,0 +1,32 @@
+<p>
+  {{ playerName }} play hard!
+</p>
+<button (click)="submit()">End Game</button>
+<hr>
+<div class="container">
+  <div class="row">
+      <div class="col">
+          1 of 3
+      </div>
+      <div class="col">
+        <tetris-core
+          #game
+          (lineCleared)="onLineCleared()">
+        </tetris-core>
+      </div>
+      <div class="col">
+          3 of 3
+      </div>
+  </div>
+  <div class="row">
+      <div class="col">
+          1 of 3
+      </div>
+      <div class="col">
+        <app-controler [game]="game"></app-controler>
+      </div>
+      <div class="col">
+          3 of 3
+      </div>
+  </div>
+</div>
