@@ -6,16 +6,18 @@
 <div class="container">
   <div class="row">
       <div class="col">
-          1 of 3
+         <app-hiscore></app-hiscore>
       </div>
       <div class="col">
         <tetris-core
           #game
-          (lineCleared)="onLineCleared()">
+          (gameOver)="onGameOver()"
+          (lineCleared)="onLineCleard()"
+        >
         </tetris-core>
       </div>
       <div class="col">
-          3 of 3
+          <app-myscore></app-myscore>
       </div>
   </div>
   <div class="row">
@@ -26,7 +28,7 @@
         <app-controler [game]="game"></app-controler>
       </div>
       <div class="col">
-          3 of 3
+        <button (click)="fakeGameOver()">fake game over</button>
       </div>
   </div>
 </div>

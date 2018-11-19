@@ -10,8 +10,15 @@ export class AppComponent {
   playerName = 'Paweł';
   gameStarted = false;
 
+  constructor() {
+    if (localStorage.name) {
+      this.start(localStorage.name);
+    }
+  }
+
   start(name) {
     this.playerName = name;
+    localStorage.name = name;
     this.gameStarted = true;
   }
 

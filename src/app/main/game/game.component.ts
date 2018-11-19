@@ -1,3 +1,4 @@
+import { ScoreService } from './../score.service';
 import { Component, OnInit, Output, EventEmitter, Input, ViewChild } from '@angular/core';
 import { TetrisCoreComponent } from 'ngx-tetris';
 
@@ -12,9 +13,21 @@ export class GameComponent implements OnInit {
 
   @ViewChild(TetrisCoreComponent) game;
 
-  constructor() { }
+  points: number;
+
+  constructor(
+    private _score: ScoreService
+  ) { }
 
   ngOnInit() {
+  }
+
+  onGameOver() {
+    this._score.submit(this.playerName, this.points);
+  }
+
+  onLineCleared() {
+    this.points++;
   }
 
   startPlaying() {
@@ -23,5 +36,9 @@ export class GameComponent implements OnInit {
 
   submit() {
     this.ended.emit();
+  }
+
+  fakeGameOver() {
+    this._score.submit(this.playerName, 1000);
   }
 }
